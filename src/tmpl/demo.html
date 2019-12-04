@@ -2,7 +2,8 @@
   <head>
     <script type="text/javascript">
 function showTotalInBanner() {
-  var ws = new WebSocket("ws://" + location.host + "/" + {{ .ContextPath }} + "/total");
+  var scheme = (location.protocol == "https:") ? "wss://" : "ws://";
+  var ws = new WebSocket(scheme + location.host + "/" + {{ .ContextPath }} + "/total");
   ws.onopen = function () {
     console.log("Opened Websocket connection");
   };
