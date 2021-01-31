@@ -8,3 +8,7 @@ openssl req -out demo.noop.ga.csr -newkey rsa:2048 -nodes -keyout demo.noop.ga.k
 
 openssl x509 -req -days 365 -CA noop.ga.crt -CAkey noop.ga.key -set_serial 0 -in demo.noop.ga.csr -out demo.noop.ga.crt
 ```
+Create the secret:
+```
+kubectl create -n istio-system secret tls demo-noop-tls --key=demo.noop.ga.key --cert=demo.noop.ga.crt
+```
