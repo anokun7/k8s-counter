@@ -23,7 +23,7 @@ spec:
       app: counter-demo
       tier: db
   strategy:
-    type: Recreate
+    type: RollingUpdate
   template:
     metadata:
       labels:
@@ -41,6 +41,6 @@ spec:
           mountPath: /data
       volumes:
       - name: redis-storage
-        persistentVolumeClaim:
-          claimName: noop-pv-claim
-
+        emptyDir: {}
+#       persistentVolumeClaim:
+#         claimName: noop-pv-claim

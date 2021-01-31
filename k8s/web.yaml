@@ -25,7 +25,7 @@ spec:
       app: counter-demo
       tier: web
   strategy:
-    type: Recreate
+    type: RollingUpdate
   template:
     metadata:
       labels:

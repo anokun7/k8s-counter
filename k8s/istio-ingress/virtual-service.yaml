@@ -7,8 +7,16 @@ spec:
   gateways:
   - istio-system/ingress-gateway
   hosts:
-  - '*'
+  - 'demo.noop.ga'
   http:
+  - match:
+    - uri:
+        prefix: /demo/total
+    route:
+    - destination:
+        host: app
+        port:
+          number: 8080
   - route:
     - destination:
         host: web
