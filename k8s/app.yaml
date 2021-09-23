@@ -18,6 +18,7 @@ metadata:
   labels:
     app: counter-demo
 spec:
+  revisionHistoryLimit: 3
   replicas: 10
   selector:
     matchLabels:
